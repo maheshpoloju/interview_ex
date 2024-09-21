@@ -9,28 +9,28 @@ import {
   UseFormMUI2,
 } from "./components/UseFormHook";
 import { ReactQueryEx } from "./components/ReactQueryEx";
+const links = [
+  { to: "/", text: "Home" },
+  { to: "/BasicUseFormEx", text: "Basic UseForm" },
+  { to: "/UseFormEx2", text: "UseForm Example 2" },
+  { to: "/UseFormEx3", text: "UseForm Example 3" },
+  { to: "/UseFormMUI1", text: "UseForm MUI 1" },
+  { to: "/UseFormMUI2", text: "UseForm MUI 2" },
+  { to: "/ReactQueryEx", text: "ReactQuery Example 1" },
+];
 
 function App() {
-  const links = [
-    { to: "/", text: "Home" },
-    { to: "/BasicUseFormEx", text: "Basic UseForm" },
-    { to: "/UseFormEx2", text: "UseForm Example 2" },
-    { to: "/UseFormEx3", text: "UseForm Example 3" },
-    { to: "/UseFormMUI1", text: "UseForm MUI 1" },
-    { to: "/UseFormMUI2", text: "UseForm MUI 2" },
-    { to: "/ReactQueryEx", text: "ReactQuery Example 1" },
-  ];
   return (
     <div className="App">
-      <ul className="links-ul">
-        {links.map(({ to, text }) => (
-          <li key={to}>
-            <Link to={to}>{text}</Link>
-          </li>
-        ))}
-      </ul>
-      <hr />
       <Router>
+        <ul className="links-ul">
+          {links.map(({ to, text }) => (
+            <li key={to}>
+              <Link to={to}>{text}</Link>
+            </li>
+          ))}
+        </ul>
+        <hr />
         <Routes>
           <Route path="/BasicUseFormEx" element={<UseFormEx />} />
           <Route path="/UseFormEx2" element={<UseFormEx2 />} />
