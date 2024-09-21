@@ -9,6 +9,7 @@ import {
   UseFormMUI2,
 } from "./components/UseFormHook";
 import { ReactQueryEx } from "./components/ReactQueryEx";
+import { CustomHookEx } from "./components/Common";
 const links = [
   { to: "/", text: "Home" },
   { to: "/BasicUseFormEx", text: "Basic UseForm" },
@@ -17,6 +18,7 @@ const links = [
   { to: "/UseFormMUI1", text: "UseForm MUI 1" },
   { to: "/UseFormMUI2", text: "UseForm MUI 2" },
   { to: "/ReactQueryEx", text: "ReactQuery Example 1" },
+  { to: "/CustomHookEx", text: "Custom Hook Example 1" },
 ];
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
           <Route path="/UseFormMUI1" element={<UseFormMUI1 />} />
           <Route path="/UseFormMUI2" element={<UseFormMUI2 />} />
           <Route path="/ReactQueryEx" element={<ReactQueryEx />} />
+          <Route path="/CustomHookEx" element={<CustomHookEx />} />
         </Routes>
       </Router>
     </div>
