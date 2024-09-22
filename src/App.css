@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
+.links-div {
+  display: flex;
+  justify-content: center;
+}
 .links-ul {
   list-style-type: none;
+}
+.vl {
+  border-left: 2px solid green;
+  margin-left: 10px;
 }
