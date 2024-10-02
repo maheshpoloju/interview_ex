@@ -1,35 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useDebounce } from "../../Hooks";
 
 const DebounceEx = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [debouncedTerm, setDebouncedTerm] = useState(searchTerm);
   const [data, setData] = useState([]);
+  const debouncedTerm = useDebounce(searchTerm, 500);
+
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${debouncedTerm}`
+      );
+      const result = await response.json();
+      setData(result);
+    } catch (err) {
+      console.log("Err in useDebounce fetchData: ", err);
+    }
+  }, [debouncedTerm]);
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedTerm(searchTerm);
-    }, 500);
-
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [searchTerm]);
-
-  useEffect(() => {
-    if (debouncedTerm) {
-      const fetchData = async () => {
-        const response = await fetch(
-          `https://jsonplaceholder.typicode.com/posts/${debouncedTerm}`
-        );
-        const result = await response.json();
-        setData(result);
-      };
-
-      fetchData();
+    if (debouncedTerm?.trim()) {
+      fetchData(debouncedTerm);
     } else {
       setData([]);
     }
-  }, [debouncedTerm]);
+  }, [debouncedTerm, fetchData]);
 
   return (
     <div>

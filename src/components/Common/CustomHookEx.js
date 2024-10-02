@@ -1,5 +1,5 @@
 import React from "react";
-import { useFetch } from "../../Common";
+import { useFetch } from "../../Pages";
 
 const CustomHookEx = () => {
   const { data, loading, error } = useFetch(

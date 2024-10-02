@@ -10,6 +10,7 @@ import {
 } from "./components/UseFormHook";
 import { ReactQueryEx } from "./components/ReactQueryEx";
 import { CustomHookEx, DebounceEx, UseReducerEx } from "./components/Common";
+import { Counter, DataFetcherRedux } from "./Pages";
 
 const linksArr = [
   {
@@ -28,6 +29,8 @@ const linksArr = [
     links: [
       { to: "/UseReducerEx", text: "useReducer Ex" },
       { to: "/DebounceEx", text: "Debounce Ex" },
+      { to: "/Counter", text: "Counter_Redux Ex" },
+      { to: "/DataFetcherRedux", text: "DataFetcher_Redux Ex" },
     ],
   },
 ];
@@ -62,6 +65,8 @@ function App() {
           <Route path="/CustomHookEx" element={<CustomHookEx />} />
           <Route path="/UseReducerEx" element={<UseReducerEx />} />
           <Route path="/DebounceEx" element={<DebounceEx />} />
+          <Route path="/Counter" element={<Counter />} />
+          <Route path="/DataFetcherRedux" element={<DataFetcherRedux />} />
         </Routes>
       </Router>
     </div>
