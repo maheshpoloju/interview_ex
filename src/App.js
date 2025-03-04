@@ -9,7 +9,12 @@ import {
   UseFormMUI2,
 } from "./components/UseFormHook";
 import { ReactQueryEx } from "./components/ReactQueryEx";
-import { CustomHookEx, DebounceEx, UseReducerEx } from "./components/Common";
+import {
+  CustomHookEx,
+  DebounceEx,
+  Practice1,
+  UseReducerEx,
+} from "./components/Common";
 import { Counter, DataFetcherRedux } from "./Pages";
 
 const linksArr = [
@@ -32,6 +37,9 @@ const linksArr = [
       { to: "/Counter", text: "Counter_Redux Ex" },
       { to: "/DataFetcherRedux", text: "DataFetcher_Redux Ex" },
     ],
+  },
+  {
+    links: [{ to: "/practice1", text: "Practice 1" }],
   },
 ];
 
@@ -67,6 +75,7 @@ function App() {
           <Route path="/DebounceEx" element={<DebounceEx />} />
           <Route path="/Counter" element={<Counter />} />
           <Route path="/DataFetcherRedux" element={<DataFetcherRedux />} />
+          <Route path="/practice1" element={<Practice1 />} />
         </Routes>
       </Router>
     </div>

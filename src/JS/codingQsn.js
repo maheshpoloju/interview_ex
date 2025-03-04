@@ -16,21 +16,25 @@ for (const char of word) {
 // console.log("Single occurrence in string: ", firstUnique);
 // ----------------------------------------------------------
 function getFibnSeriesAndSum(n) {
-  if (n === 0) return 0;
-  if (n === 1) return 1;
-  let a = 0;
-  let b = 1;
-  let temp;
+  if (n === 0) return { seriesArr: [0], sum: 0 };
+  if (n === 1) return { seriesArr: [0, 1], sum: 1 };
+
+  let a = 0, b = 1, sum = 1;
   let seriesArr = [a, b];
+
   for (let i = 2; i <= n; i++) {
-    temp = a + b;
+    let temp = a + b;
     a = b;
     b = temp;
     seriesArr.push(b);
+    sum += b;
   }
-  return { seriesArr, b };
+
+  return { seriesArr, sum };
 }
+
 // console.log("Fibonacci Series and SUM: ", getFibnSeriesAndSum(10));
+
 // ----------------------------------------------------------
 
 function getIsPrimeNum(n) {
