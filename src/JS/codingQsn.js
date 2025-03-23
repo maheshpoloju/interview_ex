@@ -260,3 +260,19 @@ function isArmstrong(num) {
 }
 console.log(isArmstrong(153));
 // ----------------------------------------------------------
+function isPalindromeStr(word) {
+  const cleanedWord = word.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  let start = 0;
+  let end = cleanedWord.length - 1;
+
+  while (start < end) {
+    if (cleanedWord[start] !== cleanedWord[end]) {
+      return false;
+    }
+    start++;
+    end--;
+  }
+  return true;
+}
+console.log(isPalindromeStr("mahi"));
+// ----------------------------------------------------------
