@@ -19,10 +19,12 @@ function getFibnSeriesAndSum(n) {
   if (n === 0) return { seriesArr: [0], sum: 0 };
   if (n === 1) return { seriesArr: [0, 1], sum: 1 };
 
-  let a = 0, b = 1, sum = 1;
+  let a = 0,
+    b = 1,
+    sum = 1;
   let seriesArr = [a, b];
 
-  for (let i = 2; i <= n; i++) {
+  for (let i = 2; i < n; i++) {
     let temp = a + b;
     a = b;
     b = temp;
@@ -228,4 +230,33 @@ console.log(
   "getLargestSumSubArr: ",
   getLargestSumSubArr([-2, 1, -3, 4, -1, 2, 1, -5, 4])
 );
+// ----------------------------------------------------------
+function isPalindrome(num) {
+  const temp = num;
+  let rev = 0;
+  while (num > 0) {
+    const lstDgt = num % 10;
+    rev = rev * 10 + lstDgt;
+    num = Math.floor(num / 10);
+  }
+  return temp === rev;
+}
+console.log(isPalindrome(121));
+// ----------------------------------------------------------
+function isArmstrong(num) {
+  const temp = num.toString();
+  let sum = 0;
+  while (num > 0) {
+    const lstDgt = num % 10;
+    let init = lstDgt;
+    for (let i = 1; i < temp.length; i++) {
+      init = lstDgt * init;
+    }
+    sum = sum + init;
+    num = Math.floor(num / 10);
+  }
+
+  return parseInt(temp) === sum;
+}
+console.log(isArmstrong(153));
 // ----------------------------------------------------------
