@@ -8,7 +8,11 @@ import {
   UseFormMUI1,
   UseFormMUI2,
 } from "./components/UseFormHook";
-import { ReactQueryEx } from "./components/ReactQueryEx";
+import {
+  ReactQueryEx,
+  ReactQueryInfiniteScroll,
+  ReactQueryPagination,
+} from "./components/ReactQueryEx";
 import {
   CustomHookEx,
   DebounceEx,
@@ -27,6 +31,8 @@ const linksArr = [
       { to: "/UseFormMUI1", text: "UseForm MUI 1" },
       { to: "/UseFormMUI2", text: "UseForm MUI 2" },
       { to: "/ReactQueryEx", text: "ReactQuery Example 1" },
+      { to: "/ReactQueryPagination", text: "ReactQuery Pagination" },
+      { to: "/ReactQueryInfiniteScroll", text: "ReactQuery InfiniteScroll" },
       { to: "/CustomHookEx", text: "Custom Hook Example 1" },
     ],
   },
@@ -70,6 +76,14 @@ function App() {
           <Route path="/UseFormMUI1" element={<UseFormMUI1 />} />
           <Route path="/UseFormMUI2" element={<UseFormMUI2 />} />
           <Route path="/ReactQueryEx" element={<ReactQueryEx />} />
+          <Route
+            path="/ReactQueryInfiniteScroll"
+            element={<ReactQueryInfiniteScroll />}
+          />
+          <Route
+            path="/ReactQueryPagination"
+            element={<ReactQueryPagination />}
+          />
           <Route path="/CustomHookEx" element={<CustomHookEx />} />
           <Route path="/UseReducerEx" element={<UseReducerEx />} />
           <Route path="/DebounceEx" element={<DebounceEx />} />
