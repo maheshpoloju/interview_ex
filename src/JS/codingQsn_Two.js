@@ -34,7 +34,7 @@ const getArmstrong = (n) => {
   let temp = n;
   let sum = 0;
   while (temp > 0) {
-    rem = temp % 10;
+    let rem = temp % 10;
     sum = sum + rem * rem * rem;
     temp = Math.floor(temp / 10);
   }
@@ -55,3 +55,17 @@ function getPalindrome(str) {
 
 // console.log("Palindrome: ", getPalindrome("madam"));
 // ----------------------------------------------------------------------------
+
+const nums = [2,7,11,15]
+const target = 9
+const seen = {}
+for (let i=0; i<nums.length; i++){
+    const complement = target-nums[i]
+    if (complement in seen){
+        console.log('Find indexes of sum: ', [seen[complement], i])
+    }
+    else{
+        seen[nums[i]] = i
+    }
+}
+// console.log("Find indexes of sum: ");
