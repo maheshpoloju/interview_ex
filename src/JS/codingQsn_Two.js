@@ -56,16 +56,16 @@ function getPalindrome(str) {
 // console.log("Palindrome: ", getPalindrome("madam"));
 // ----------------------------------------------------------------------------
 
-const nums = [2,7,11,15]
-const target = 9
-const seen = {}
-for (let i=0; i<nums.length; i++){
-    const complement = target-nums[i]
-    if (complement in seen){
-        console.log('Find indexes of sum: ', [seen[complement], i])
-    }
-    else{
-        seen[nums[i]] = i
-    }
+const nums = [2, 7, 11, 15];
+const target = 9;
+const seen = {};
+for (let i = 0; i < nums.length; i++) {
+  const complement = target - nums[i];
+  if (complement in seen) {
+    console.log("Find indexes of sum: ", [seen[complement], i]);
+    break;
+  } else {
+    seen[nums[i]] = i;
+  }
 }
 // console.log("Find indexes of sum: ");
