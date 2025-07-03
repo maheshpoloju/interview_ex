@@ -69,3 +69,96 @@ for (let i = 0; i < nums.length; i++) {
   }
 }
 // console.log("Find indexes of sum: ");
+
+function groupByDepartment(users) {
+  const unqDept = [];
+  users.forEach((user) => {
+    if (!unqDept.includes(user.department)) {
+      unqDept.push(user.department);
+    }
+  });
+
+  const res = {};
+  unqDept.forEach((dept) => {
+    const tempArr = [];
+    for (const user of users) {
+      if (dept === user.department) {
+        tempArr.push(user);
+      }
+    }
+    res[dept] = [...tempArr];
+  });
+  return res;
+}
+
+// 2nd way
+// function groupByDepartment(users) {
+//   const res = users.reduce((acc, curr) => {
+//     if (!acc[curr.department]) {
+//       acc[curr.department] = [];
+//     }
+//     acc[curr.department].push(curr);
+//     return acc;
+//   }, {});
+//   return res;
+// }
+
+const users = [
+  { name: "Alice", department: "HR" },
+  { name: "Bob", department: "Engineering" },
+  { name: "Eve", department: "HR" },
+];
+// console.log("groupByDepartment: ", groupByDepartment(users));
+
+// Write your own promise
+function myPrmoiseAll(promises) {
+  return new Promise((resolve, reject) => {
+    const results = [];
+    let count = 0;
+    promises.forEach((p, i) => {
+      Promise.resolve(p)
+        .then((res) => {
+          results[i] = res;
+          count++;
+          if (count === promises.length) {
+            resolve(results);
+          }
+        })
+        .catch(reject);
+    });
+  });
+}
+
+const p1 = Promise.resolve(1);
+const p2 = Promise.resolve(24);
+const p3 = Promise.resolve("eerr");
+myPrmoiseAll([p1, p2, p3])
+  .then((res) => console.log("res: ", res))
+  .catch((err) => console.log("err: ", err));
+
+// isValidParentheses
+
+function isValidParentheses(s) {
+  const stack = [];
+  const map = {
+    ")": "(",
+    "]": "[",
+    "}": "{",
+  };
+
+  for (let char of s) {
+    if (char === "(" || char === "[" || char === "{") {
+      stack.push(char);
+    } else {
+      if (stack.pop() !== map[char]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
+}
+
+// Example usage:
+console.log(isValidParentheses("{[()]}")); // true
+console.log(isValidParentheses("{[(])}")); // false

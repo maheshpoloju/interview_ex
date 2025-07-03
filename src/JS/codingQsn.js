@@ -124,6 +124,18 @@ function flattenArray(arr) {
     []
   );
 }
+// 2nd way
+// function flattenArray(arr) {
+//   const res = [];
+//   for (const ele of arr) {
+//     if (Array.isArray(ele)) {
+//       res.push(...getFlatterArr(ele));
+//     } else {
+//       res.push(ele);
+//     }
+//   }
+//   return res;
+// }
 
 // console.log("flattenArray: ", flattenArray([1, [2, [3, 4], 5]])); // Output: [1, 2, 3, 4, 5]
 // ----------------------------------------------------------
