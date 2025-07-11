@@ -229,6 +229,35 @@ function getArrLeftRotate(arr, k) {
 }
 // console.log("Arr Left Rotate: ", getArrLeftRotate([5, 3, 5, 8, 1, 2], 2));
 // ----------------------------------------------------------
+
+//another method
+// function getLargestSumSubArr(arr) {
+//   let maxSum = arr[0];
+//   let currentSum = arr[0];
+
+//   let start = 0;
+//   let end = 0;
+//   let tempStart = 0;
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] > currentSum + arr[i]) {
+//       currentSum = arr[i];
+//       tempStart = i; // New subarray starts here
+//     } else {
+//       currentSum += arr[i];
+//     }
+
+//     if (currentSum > maxSum) {
+//       maxSum = currentSum;
+//       start = tempStart;
+//       end = i;
+//     }
+//   }
+
+//   const subarray = arr.slice(start, end + 1);
+//   return { maxSum, subarray };
+// }
+
 function getLargestSumSubArr(arr) {
   let maxSum = arr[0];
   let currentSum = arr[0];
