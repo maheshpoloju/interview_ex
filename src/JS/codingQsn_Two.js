@@ -159,6 +159,30 @@ function isValidParentheses(s) {
   return stack.length === 0;
 }
 
-// Example usage:
 console.log(isValidParentheses("{[()]}")); // true
 console.log(isValidParentheses("{[(])}")); // false
+
+// flattenObj
+const input = {
+  a: 1,
+  b: {
+    c: 2,
+    d: {
+      e: 3,
+    },
+  },
+};
+
+function flattenObj(input, prefix = "", res = {}) {
+  for (const [key, val] of Object.entries(input)) {
+    const newKey = prefix ? `${prefix}.${key}` : key;
+    if (typeof val === "object" && val !== null && !Array.isArray(val)) {
+      flattenObj(val, newKey, res);
+    } else {
+      res[newKey] = val;
+    }
+  }
+  return res;
+}
+
+console.log("Result: ", flattenObj(input));
